@@ -91,11 +91,11 @@ class num2persian
     /** 
      * Numbers/Digits to Persian words converter
      * Ability to process numbers up to 66 integers and 11 decimal places دسیلیارد 
-     * @param float $num Numbers to convert to letters
+     * @param string|float $num Numbers to convert to letters
      * @example 1 to یک
      * @return string converted text
      */
-    public static function num2persian(float $input)
+    public static function num2persian($input)
     {
         $input = preg_replace("/[^0-9.-]/", "", $input);
         $isNegative = false;
@@ -143,10 +143,10 @@ class num2persian
     /** 
      * Convert numbers to counting numbers text
      * @example 1 to اولین 
-     * @param float $num Numbers to convert to letters
+     * @param string|float $num Numbers to convert to letters
      * @return string converted text
      */
-    public static function counting(float $num)
+    public static function counting($num)
     {
         if ($num == "1") {
             return "اولین";
@@ -158,7 +158,9 @@ class num2persian
             $split[count($split) - 1] = "سومین";
         } else {
             $split[count($split) - 1] = ($end . "مین");
+            $split[count($split) - 1] = ($end . ((mb_substr($end, -1) != 'م') ? 'مین' : 'ین'));
         }
+
         return implode(" ", $split);
     }
 }
