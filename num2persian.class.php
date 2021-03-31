@@ -85,7 +85,7 @@ class num2persian
         if (mb_strlen($decimalPart) > 11) {
             $decimalPart = mb_substr($decimalPart, 0, 11);
         }
-        return ' ممیز ' . self::num2persian($decimalPart) . ' ' . self::$decimalSuffixes[mb_strlen($decimalPart)];
+        return ' ممیز ' . self::numToPersian($decimalPart) . ' ' . self::$decimalSuffixes[mb_strlen($decimalPart)];
     }
 
     /** 
@@ -95,7 +95,7 @@ class num2persian
      * @example 1 to یک
      * @return string converted text
      */
-    public static function num2persian($input)
+    public static function numToPersian($input)
     {
         $input = preg_replace("/[^0-9.-]/", "", $input);
         $isNegative = false;
@@ -151,7 +151,7 @@ class num2persian
         if ($num == "1") {
             return "اولین";
         }
-        $num = self::num2persian($num);
+        $num = self::numToPersian($num);
         $split = explode(" ", $num);
         $end = end($split);
         if ($end == "سه") {
