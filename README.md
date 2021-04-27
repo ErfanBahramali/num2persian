@@ -3,19 +3,19 @@ Numbers/Digits to Persian words converter
 
 ## Usage
 ### num2persian
-```
+```php
 $num2persian = new num2persian();
 $num2persian->numToPersian(193); // output: یکصد و نود و سه
 ```
-```
+```php
 num2persian::numToPersian(193); // output: یکصد و نود و سه
 ```
 ### counting
-```
+```php
 $num2persian = new num2persian();
 $num2persian->counting(193); // output: یکصد و نود و سومین
 ```
-```
+```php
 num2persian::counting(193); // output: یکصد و نود و سومین
 ```
 ## Example
